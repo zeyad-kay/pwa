@@ -59,8 +59,8 @@
         <h1>Minimal PWA</h1>
         <button id="install-btn" onclick="install()">Install</button>
     </div>
-</body>
-<script>
+
+    <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
             navigator.serviceWorker.register('sw.js').then(function (registration) {
@@ -85,5 +85,7 @@
         }
     }
 </script>
+    
+    </body>
 
 </html>
