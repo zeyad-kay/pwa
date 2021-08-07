@@ -1,8 +1,8 @@
 var CACHE_NAME = 'my-pwa-cache-v1';
 var urlsToCache = [
-    '/',
-    '/images',
-    '/manifest.json'
+    './',
+    './images',
+    './manifest.json'
 ];
 
 self.addEventListener('install', function (event) {
