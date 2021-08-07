@@ -8,35 +8,74 @@
     <link rel="manifest" href="/manifest.json">
     <title>PWA</title>
 </head>
+<style>
+    body {
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        height: 100vh;
+        background-color: #159957;
+        background-image: linear-gradient(120deg, #155799, #159957);
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    div {
+        position: relative;
+        top: 20%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        color: white;
+        padding: 2rem;
+    }
+
+    #install-btn {
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+    }
+</style>
 
 <body>
-    <h1>Hello</h1>
-    <button style="padding: 2rem;" onclick="install()">Install</button>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('/sw.js').then(function (registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function (err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                });
+    <div>
+        <h1>Minimal PWA</h1>
+        <button id="install-btn" onclick="install()">Install</button>
+    </div>
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
             });
-        }
-        let deferred;
-        window.addEventListener("beforeinstallprompt",(e)=>{
-            deferred = e
-        })
-        function install() {
-            if(deferred) {
-                deferred.prompt()
-                if(deferred.userChoice.outcome === "accepted"){
-                    deferred = null;
-                }
+        });
+    }
+    let deferred;
+    window.addEventListener("beforeinstallprompt", (e) => {
+        deferred = e
+    })
+    function install() {
+        if (deferred) {
+            deferred.prompt()
+            if (deferred.userChoice.outcome === "accepted") {
+                deferred = null;
             }
         }
-    </script>
-</body>
+    }
+</script>
 
 </html>
