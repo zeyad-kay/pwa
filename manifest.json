@@ -12,10 +12,10 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "/",
+    "start_url": "/pwa/",
     "background_color": "#3367D6",
     "display": "standalone",
-    "scope": "/",
+    "scope": "/pwa/",
     "theme_color": "#3367D6",
     "description": "PWA"
   }
