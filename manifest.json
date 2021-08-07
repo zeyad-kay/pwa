@@ -2,20 +2,20 @@
     "name": "PWA",
     "icons": [
       {
-        "src": "./images/logo192.png",
+        "src": "images/logo192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "./images/logo512.png",
+        "src": "images/logo512.png",
         "type": "image/png",
         "sizes": "512x512"
       }
     ],
-    "start_url": "/pwa/",
+    "start_url": "./",
     "background_color": "#3367D6",
     "display": "standalone",
-    "scope": "/pwa/",
+    "scope": ".",
     "theme_color": "#3367D6",
     "description": "PWA"
   }
